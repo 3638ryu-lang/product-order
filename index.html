@@ -717,13 +717,13 @@
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwCVZqzUoIW4If8mbWoJK6dty5CnmCTAZdqMqtibLosMXUrAnJydTapZ5-08a6pjRuuyg/exec';
 
         const PRODUCTS = [
-            { id: 1, name: '원방공진단', price: 27000, emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
-            { id: 2, name: '명품공진단', price: 23000, emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
-            { id: 3, name: '실속공진단', price: 17000, emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
-            { id: 4, name: '침향공진단', price: 9500, emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
+            { id: 1, name: '원방공진단', price: 27000, unit: '1환', emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
+            { id: 2, name: '명품공진단', price: 23000, unit: '1환', emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
+            { id: 3, name: '실속공진단', price: 17000, unit: '1환', emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
+            { id: 4, name: '침향공진단', price: 9500, unit: '1환', emoji: '💊', desc: '4.5g/금박, 첨병', image: 'images/gongjindan.jpg' },
             { id: 5, name: '원방경옥고', price: 38000, emoji: '🍯', desc: '4.5g/30환', image: 'images/gyeongokgo-hwan.jpg' },
             { id: 6, name: '연조경옥고', price: 34000, emoji: '🍯', desc: '10g/30포', image: 'images/gyeongokgo-stick.jpg' },
-            { id: 7, name: '우황청심원', price: 13000, emoji: '🟡', desc: '4.5g', image: 'images/woohwang-cheongsim.jpg' },
+            { id: 7, name: '우황청심원', price: 13000, unit: '1환', emoji: '🟡', desc: '4.5g/금박, 첨병', image: 'images/woohwang-cheongsim.jpg' },
             { id: 8, name: '소화제', price: 9000, emoji: '🌿', desc: '4g/15포', image: 'images/hwan-generic.jpg' },
             { id: 9, name: '변비환', price: 8250, emoji: '🌱', desc: '4g/15포', image: 'images/byeonbihwan.jpg' },
             { id: 10, name: '비염환', price: 8250, emoji: '🤧', desc: '4g/15포', image: 'images/hwan-generic.jpg' },
@@ -744,7 +744,7 @@
                     <div class="product-info">
                         <div class="product-name">${p.name}</div>
                         <div class="product-desc">${p.desc}</div>
-                        <div class="product-price">${p.price.toLocaleString()}원</div>
+                        <div class="product-price">${p.price.toLocaleString()}원${p.unit ? ` / ${p.unit}` : ''}</div>
                         <div class="qty-row">
                             <button type="button" class="qty-btn" onclick="changeQty(${p.id}, -1)">-</button>
                             <span class="qty-value" id="qty-${p.id}">1</span>
@@ -832,7 +832,7 @@
                     <div class="cart-item">
                         <div>
                             <div class="cart-item-name">${product.name}</div>
-                            <div class="cart-item-sub">${product.price.toLocaleString()}원 x ${qty}개 = ${subtotal.toLocaleString()}원</div>
+                            <div class="cart-item-sub">${product.price.toLocaleString()}원${product.unit ? `/${product.unit}` : ''} x ${qty}개 = ${subtotal.toLocaleString()}원</div>
                         </div>
                         <div class="cart-item-controls">
                             <div class="qty-row" style="margin-bottom: 0;">
