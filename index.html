@@ -190,6 +190,17 @@
             color: white;
         }
 
+        .product-image.has-photo {
+            background: white;
+            padding: 8px;
+        }
+
+        .product-image.has-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .product-info {
             padding: 20px;
             display: flex;
@@ -710,13 +721,13 @@
             { id: 2, name: '명품공진단', price: 23000, emoji: '💊', desc: '4.5g/금박, 첨병' },
             { id: 3, name: '실속공진단', price: 17000, emoji: '💊', desc: '4.5g/금박, 첨병' },
             { id: 4, name: '침향공진단', price: 9500, emoji: '💊', desc: '4.5g/금박, 첨병' },
-            { id: 5, name: '원방경옥고', price: 38000, emoji: '🍯', desc: '4.5g/30환' },
-            { id: 6, name: '연조경옥고', price: 34000, emoji: '🍯', desc: '10g/30포' },
+            { id: 5, name: '원방경옥고', price: 38000, emoji: '🍯', desc: '4.5g/30환', image: 'images/gyeongokgo-hwan.jpg' },
+            { id: 6, name: '연조경옥고', price: 34000, emoji: '🍯', desc: '10g/30포', image: 'images/gyeongokgo-stick.jpg' },
             { id: 7, name: '우황청심원', price: 13000, emoji: '🟡', desc: '4.5g' },
-            { id: 8, name: '소화제', price: 9000, emoji: '🌿', desc: '4g/15포' },
-            { id: 9, name: '변비환', price: 8250, emoji: '🌱', desc: '4g/15포' },
-            { id: 10, name: '비염환', price: 8250, emoji: '🤧', desc: '4g/15포' },
-            { id: 11, name: '서근활락단 (포)', price: 8250, emoji: '🦴', desc: '4g/15포' },
+            { id: 8, name: '소화제', price: 9000, emoji: '🌿', desc: '4g/15포', image: 'images/hwan-generic.jpg' },
+            { id: 9, name: '변비환', price: 8250, emoji: '🌱', desc: '4g/15포', image: 'images/byeonbihwan.jpg' },
+            { id: 10, name: '비염환', price: 8250, emoji: '🤧', desc: '4g/15포', image: 'images/hwan-generic.jpg' },
+            { id: 11, name: '서근활락단 (포)', price: 8250, emoji: '🦴', desc: '4g/15포', image: 'images/hwan-generic.jpg' },
             { id: 12, name: '서근활락단 (병)', price: 17000, emoji: '🧴', desc: '1병/100cc' },
             { id: 13, name: '청위환', price: 14000, emoji: '🍵', desc: '1병/100cc' }
         ];
@@ -729,7 +740,7 @@
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = PRODUCTS.map(p => `
                 <div class="product-card">
-                    <div class="product-image">${p.emoji}</div>
+                    <div class="product-image${p.image ? ' has-photo' : ''}">${p.image ? `<img src="${p.image}" alt="${p.name}">` : p.emoji}</div>
                     <div class="product-info">
                         <div class="product-name">${p.name}</div>
                         <div class="product-desc">${p.desc}</div>
